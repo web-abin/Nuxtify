@@ -1,0 +1,174 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  font-size: 100px;
+  line-height: 1.5;
+  letter-spacing: 0;
+}
+body {
+  width: 100vw;
+  height: 100vh;
+  background: var(--background-main);
+  overflow: hidden;
+  font-family: PingFangSC-Regular, 'Microsoft YaHei', Arial, Helvetica,
+    sans-serif;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.5;
+  color: var(--color-main);
+}
+
+div,
+span,
+p,
+li,
+button,
+header,
+footer,
+main {
+  font-size: 0.16rem;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin-bottom: 0;
+}
+
+input {
+  min-width: 0;
+}
+image {
+  display: block;
+  font-size: 0;
+}
+button {
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+button[disabled='disabled'] {
+  cursor: not-allowed !important;
+}
+p {
+  margin: 0;
+}
+
+/* 数字输入框隐藏上下箭头 */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+input:-webkit-autofill {
+  background: transparent;
+  transition: background-color 50000s ease-in-out 0s;
+  -webkit-text-fill-color: unset;
+}
+
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+input:focus {
+  outline: none;
+}
+
+a {
+  display: inline-block;
+  :hover {
+    text-decoration: none;
+  }
+}
+
+@media screen and (min-width: 320px) {
+  html {
+    font-size: 86px;
+  }
+}
+@media screen and (min-width: 360px) {
+  html {
+    font-size: 96px;
+  }
+}
+@media screen and (min-width: 375px) {
+  html {
+    font-size: 100px;
+  }
+}
+@media screen and (min-width: 384px) {
+  html {
+    font-size: 102.4px;
+  }
+}
+@media screen and (min-width: 400px) {
+  html {
+    font-size: 106px;
+  }
+}
+@media screen and (min-width: 412px) {
+  html {
+    font-size: 106px;
+  }
+}
+@media screen and (min-width: 414px) {
+  html {
+    font-size: 106px;
+  }
+}
+@media screen and (min-width: 424px) {
+  html {
+    font-size: 106px;
+  }
+}
+@media screen and (min-width: 480px) {
+  html {
+    font-size: 106px;
+  }
+}
+@media screen and (min-width: 540px) {
+  html {
+    font-size: 106px;
+  }
+}
+@media screen and (min-width: 640px) {
+  html {
+    font-size: 88px;
+  }
+}
+@media screen and (min-width: 768px) {
+  html {
+    font-size: 92px;
+  }
+}
+@media screen and (min-width: 1080px) {
+  html {
+    font-size: 96px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  html {
+    font-size: 100px;
+  }
+}
+@media screen and (min-width: 1560px) {
+  html {
+    font-size: 120px;
+  }
+}
+@media screen and (min-width: 1920px) {
+  html {
+    font-size: 130px;
+  }
+}
+@media screen and (min-width: 2100px) {
+  html {
+    font-size: 140px;
+  }
+}

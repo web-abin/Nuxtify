@@ -1,0 +1,12 @@
+:root {
+  --header-height: 0.6rem;
+  --aside-width: 2.12rem;
+  --footer-height: 17.4667vw;
+}
+
+@media (max-width: 480px) {
+  :root {
+    --header-height: 13.8667vw;
+    --aside-width: 0px;
+  }
+}

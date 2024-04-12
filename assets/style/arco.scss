@@ -1,0 +1,43 @@
+.arco-modal-mask {
+  background-color: rgba(0, 0, 0, 0.8) !important;
+}
+
+.arco-modal-body {
+  padding: 0 !important;
+}
+
+.arco-drawer-mask {
+  background-color: rgba(0, 0, 0, 0.6) !important;
+}
+
+.login-modal,
+.profile-modal,
+.delete-chat-modal,
+.charge-modal,
+.download-modal {
+  width: fit-content !important;
+  background: none !important;
+  padding-bottom: 0.6rem;
+  .arco-modal-footer {
+    display: none;
+  }
+}
+
+.login-drawer {
+  .arco-drawer {
+    height: fit-content !important;
+    padding: 0;
+    border-radius: 5.3333vw 5.3333vw 0px 0px !important;
+    background: #000000;
+    overflow: hidden;
+  }
+  .arco-drawer-body {
+    padding: 0;
+  }
+}
+
+.arco-spin {
+  .arco-icon-spin {
+    color: #60c836;
+  }
+}
