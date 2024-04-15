@@ -14,6 +14,7 @@ declare module 'vue' {
     ADatePicker: typeof import('@arco-design/web-vue')['DatePicker']
     ADrawer: typeof import('@arco-design/web-vue')['Drawer']
     AEmpty: typeof import('@arco-design/web-vue')['Empty']
+    AInputPassword: typeof import('@arco-design/web-vue')['InputPassword']
     AModal: typeof import('@arco-design/web-vue')['Modal']
     ASpace: typeof import('@arco-design/web-vue')['Space']
     ASpin: typeof import('@arco-design/web-vue')['Spin']

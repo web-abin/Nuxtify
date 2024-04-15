@@ -78,7 +78,6 @@ const fetch = $fetch.create({
     const {
       public: { apiBase, env }
     } = useRuntimeConfig()
-    console.log('环境变量', useRuntimeConfig(), options)
 
     options.baseURL = apiBase
     // 添加请求头,没登录不携带token
@@ -98,6 +97,7 @@ const fetch = $fetch.create({
   },
   // 响应拦截
   onResponse({ response }) {
+    if (response.status === 404) return
     if (response.status !== 200) return handleError(response)
     // 成功返回
     return response._data

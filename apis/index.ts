@@ -1,7 +1,7 @@
+import * as user from './user'
 import * as login from './login'
-import * as sys from './sys'
 
 export default {
+  user,
   login,
-  sys,
 }

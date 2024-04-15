@@ -1,13 +1,6 @@
 :root {
-  --background-main: #000000;
-  --background-panel: #111111;
-  --color-main: #fff;
-}
-
-@media (max-width: 480px) {
-  :root {
-    --background-main: #000000;
-    --background-panel: #111111;
-    --color-main: #fff;
-  }
+  --background-main: #f2f3f5;
+  --background-panel: #ffffff;
+  --font-main: #000000;
+  --color-main: #007fff;
 }

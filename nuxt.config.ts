@@ -43,7 +43,7 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
     'nuxt-lodash',
     '@pinia-plugin-persistedstate/nuxt',
-    'nuxt-vue3-google-signin'
+    "@nuxt/content"
   ],
   css: ['assets/style/index.css', '@unocss/reset/tailwind-compat.css'],
   runtimeConfig: createRuntimeConfig(),
@@ -63,10 +63,5 @@ export default defineNuxtConfig({
   // vueuse
   vueuse: {
     ssrHandlers: true
-  },
-  // 谷歌登录  https://console.cloud.google.com/apis/credentials/oauthclient/802818305618-0mq1mg94kdmf43p2sovuq68bhj5p38gi.apps.googleusercontent.com?project=xmate-418709
-  googleSignIn: {
-    clientId:
-      '802818305618-0mq1mg94kdmf43p2sovuq68bhj5p38gi.apps.googleusercontent.com'
   }
 })

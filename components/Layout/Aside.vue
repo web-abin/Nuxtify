@@ -1,31 +1,52 @@
 <template>
   <aside>
     <nuxt-link to="/" class="menu" active-class="menu_active" exact>
-      <img src="~/assets/images/b1.webp" alt="首页图标" />
-      Home
+      首页
     </nuxt-link>
-    <nuxt-link to="/chat" class="menu" active-class="menu_active" exact>
-      <img src="~/assets/images/b2.webp" alt="聊天图标" />
-      Chat
+    <nuxt-link
+      v-for="(nav, index) in navList"
+      :key="index"
+      :to="nav.to"
+      class="menu"
+      active-class="menu_active"
+      exact
+    >
+      {{ nav.name }}
     </nuxt-link>
   </aside>
 </template>
 
-<script setup></script>
+<script lang="ts" setup>
+const router = useRouter()
+const navList = ref()
+const routerList = router
+  .getRoutes()
+  .filter((item) => item.path !== '/')
+  .sort((a, b) => b.meta.sort - a.meta.sort)
+  .map((item) => ({ to: item.path, name: item.meta.title ?? item.name }))
+  .reverse()
+
+navList.value = routerList
+</script>
 
 <style scoped lang="scss">
 aside {
-  position: relative;
-  z-index: 1;
   width: var(--aside-width);
-  height: calc(100vh - var(--header-height));
-  padding: 0.3rem;
+  min-width: var(--aside-width);
+  height: 100%;
+  max-height: 120vh;
+  border-radius: 4px;
+  padding: 0.08rem;
   background: var(--background-panel);
+  overflow-y: scroll;
+  &::-webkit-scrollbar {
+    display: none;
+  }
   .menu {
     width: 100%;
     height: 0.48rem;
     margin-bottom: 0.16rem;
-    border-radius: 0.12rem;
+    border-radius: 4px;
     display: flex;
     align-items: center;
     padding-left: 0.2rem;
@@ -33,7 +54,6 @@ aside {
     font-size: 0.15rem;
     font-weight: 500;
     font-variation-settings: 'opsz' auto;
-    color: rgba(255, 255, 255, 0.5);
     cursor: pointer;
     img {
       width: 0.165rem;
@@ -42,15 +62,9 @@ aside {
     }
     &_active {
       border: none;
-      background: rgba(255, 255, 255, 0.15);
-      color: #fff;
+      background: #eaf2ff;
+      color: #1e80ff;
     }
-  }
-}
-
-@media screen and (max-width: 480px) {
-  aside {
-    display: none;
   }
 }
 </style>

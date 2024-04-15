@@ -33,7 +33,6 @@
   "dependencies": {
     "@unocss/reset": "^0.58.6",
     "dplayer": "^1.27.1",
-    "nuxt-vue3-google-signin": "^0.0.11",
     "sa-sdk-javascript": "^1.26.10",
     "sass": "^1.72.0",
     "sass-loader": "^14.1.1",
@@ -45,6 +44,7 @@
     "@antfu/eslint-config": "^2.8.3",
     "@arco-design/web-vue": "^2.55.0",
     "@iconify-json/mdi": "^1.1.64",
+    "@nuxt/content": "^2.12.1",
     "@pinia-plugin-persistedstate/nuxt": "^1.2.0",
     "@pinia/nuxt": "^0.5.1",
     "@types/dplayer": "^1.25.5",

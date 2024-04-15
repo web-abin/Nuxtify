@@ -60,12 +60,6 @@ export function getTimeDifference(timestamp: any) {
   }
 }
 
-export function getUrlParams(name: any) {
-  const reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i')
-  const r = window.location.search.substr(1).match(reg)
-  if (r != null) return unescape(r[2])
-  return null
-}
 
 // 是否是移动端
 export function isMobile() {

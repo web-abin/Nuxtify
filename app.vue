@@ -1,20 +1,6 @@
 <script lang="ts" setup>
 import '@arco-design/web-vue/es/message/style/css.js'
 import '@arco-design/web-vue/es/notification/style/css.js'
-
-useHead({
-  meta: [
-    {
-      name: 'description',
-      content:
-        '我的神奇网站.我的神奇网站.我的神奇网站.我的神奇网站.我的神奇网站.我的神奇网站.'
-    },
-    {
-      name: 'keywords',
-      content: 'keywords.keywords.keywords.keywords.keywords.keywords.'
-    }
-  ]
-})
 </script>
 
 <template>
@@ -22,7 +8,15 @@ useHead({
     <NuxtLoadingIndicator />
     <NuxtPage />
   </NuxtLayout>
-  <Charge />
-  <Charge-Result />
-  <DownloadApp />
 </template>
+
+<style>
+body {
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+#__nuxt {
+  height: fit-content;
+}
+</style>

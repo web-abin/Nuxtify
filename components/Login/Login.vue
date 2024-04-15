@@ -4,60 +4,81 @@
     :hide-title="true"
     modalClass="login-modal"
   >
-    <div class="block" @click.stop>
-      <Loading v-show="loading" />
-      <h2>Welcome Back!</h2>
-      <h3>Sign in to your account</h3>
-      <div class="login-card" @click.stop>
-        <button class="login-item facebook" @click="handleLoginByFacebook">
-          <img src="~/assets/images/facebook.webp" alt="facebook" />
-          <span>Sign in with Facebook</span>
-        </button>
-
-        <div class="login-item google">
-          <div class="google-ui">
-            <img src="~/assets/images/google.webp" alt="google登录" />
-            <span>Sign in with Google</span>
-          </div>
-          <GoogleSignInButton
-            class="google-btn"
-            @success="handleLoginByGoogle"
-            @error="handleLoginError"
+    <form class="form">
+      <p class="form-title">登录Nutify体验更多功能</p>
+      <div class="input-container">
+        <input placeholder="Enter email" type="email" />
+        <span>
+          <svg
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
           >
-          </GoogleSignInButton>
-        </div>
-
-        <div v-if="env !== 'production'" class="login-item" @click="mockLogin">
-          模拟登录
-        </div>
-
-        <div class="protocol">
-          By continuing，you agree to our
-          <a
-            :href="`${locationOrigin}/protocol/agreement-en.html`"
-            rel="nofollow"
-            target="_blank"
-            >User Agreement</a
-          >
-          and
-          <a
-            :href="`${locationOrigin}/protocol/service-en.html`"
-            rel="nofollow"
-            target="_blank"
-            >Privacy Policy</a
-          >
-        </div>
-
-        <p class="tip">Don't have an account？<span>Sign up</span></p>
+            <path
+              d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"
+              stroke-width="2"
+              stroke-linejoin="round"
+              stroke-linecap="round"
+            ></path>
+          </svg>
+        </span>
       </div>
-    </div>
+      <div class="input-container">
+        <input placeholder="Enter password" type="password" />
+
+        <span>
+          <svg
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+              stroke-width="2"
+              stroke-linejoin="round"
+              stroke-linecap="round"
+            ></path>
+            <path
+              d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+              stroke-width="2"
+              stroke-linejoin="round"
+              stroke-linecap="round"
+            ></path>
+          </svg>
+        </span>
+      </div>
+      <button class="submit" type="button" @click="handleLogin">
+        登录 / 注册
+      </button>
+
+      <button class="submit" type="button" @click="handleMockLogin">
+        模拟登录
+      </button>
+
+      <div class="protocol">
+        注册登录即表示同意
+        <a
+          :href="`${locationOrigin}/protocol/agreement.html`"
+          rel="nofollow"
+          target="_blank"
+          >用户协议</a
+        >
+        和
+        <a
+          :href="`${locationOrigin}/protocol/service.html`"
+          rel="nofollow"
+          target="_blank"
+          >隐私政策</a
+        >
+      </div>
+    </form>
   </a-modal>
 </template>
 
 <script setup>
 import { Message } from '@arco-design/web-vue'
-import { GoogleSignInButton } from 'vue3-google-signin'
-import { initFacebookSdk } from '~/utils/facebook'
 import { useUserStore } from '~/stores/user.store.ts'
 
 const userStore = useUserStore()
@@ -82,228 +103,98 @@ const handleClose = () => {
   showModal.value = false
 }
 
-onMounted(() => {
-  initFacebookSdk()
-})
-// facebook登录
-const handleLoginByFacebook = async () => {
-  loading.value = true
-  try {
-    FB.getLoginStatus(function (response) {
-      if (response.status === 'connected') {
-        postLogin(response.authResponse, 'meta', 'Facebook')
-      } else {
-        // 未登录，fb会让用户登录
-        FB.login((res) => {
-          if (res.status === 'connected') {
-            postLogin(res.authResponse, 'meta', 'Facebook')
-          } else {
-            loading.value = false
-            Message.error('Login error')
-          }
-        })
-      }
-    })
-  } catch (error) {
-    console.error('Failed to initialize Facebook SDK', error)
-    loading.value = false
-    Message.error('Login error')
-  }
+const handleLogin = async () => {
+  await userStore.postLogin()
+  showModal.value = false
 }
 
-// 谷歌登录
-const handleLoginByGoogle = (response) => {
-  postLogin(response, 'google', 'Google')
-}
-
-// 谷歌登录失败
-const handleLoginError = (error) => {
-  sensorLogin('Google', false, '谷歌调取失败')
-  loading.value = false
-}
-
-const mockLogin = async () => {
-  loading.value = true
-  const params = {
-    google_id:
-      '802818305618-0mq1mg94kdmf43p2sovuq68bhj5p38gi.apps.googleusercontent.com',
-    clientId:
-      '802818305618-0mq1mg94kdmf43p2sovuq68bhj5p38gi.apps.googleusercontent.com',
-    client_id:
-      '802818305618-0mq1mg94kdmf43p2sovuq68bhj5p38gi.apps.googleusercontent.com',
-    credential:
-      'eyJhbGciOiJSUzI1NiIsImtpZCI6IjA4YmY1YzM3NzJkZDRlN2E3MjdhMTAxYmY1MjBmNjU3NWNhYzMyNmYiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJhenAiOiI3NDIxMzczMjU5MTMtajZ0bjJkazk2djEyOGJsN29jdWYxajYzM25ta2loOHIuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJhdWQiOiI3NDIxMzczMjU5MTMtajZ0bjJkazk2djEyOGJsN29jdWYxajYzM25ta2loOHIuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJzdWIiOiIxMDAwOTk2NzM1NDQ2NTI3MjM4NzUiLCJlbWFpbCI6Imh1aW1pbnJlbm5pY2VAZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsIm5iZiI6MTcwOTg4OTAzOSwibmFtZSI6Imh1aW1pbiByZW4iLCJwaWN0dXJlIjoiaHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUNnOG9jTERlbkRmRUY0Z0NGUnlUWXNaalZDbVpwcTRJeFEyeVpveWc4dTJ0dGFRPXM5Ni1jIiwiZ2l2ZW5fbmFtZSI6Imh1aW1pbiIsImZhbWlseV9uYW1lIjoicmVuIiwibG9jYWxlIjoiemgtQ04iLCJpYXQiOjE3MDk4ODkzMzksImV4cCI6MTcwOTg5MjkzOSwianRpIjoiN2U5Yzg3MjBjMTY2N2YzZDNkN2M2MGI2NGM3ZWMxZjcxMTUzNmVhMyJ9.Wbb13ct7n5Nxm6a_fuGVywMFq3LmRnRVVPlWvXp3RL3s1xm2JPNUCOs_W84GINX3YCnmp9ZV91ujx2NS4m2guEfdAQMjERYmVBLljE3lXNzh2CBv2hysa0SDF5lZpea98bSwfJU7i_egcZxxJ55Or4fFCSxRuEn_KArewiqbXEN2uBG5Ut-lGDyOrOf6MQ-9EnWYbGEdOMLD4YI69GrZDYiZvttd_LhRRqb9mJ2EajyUQv4RX8GaSa4k4W1VtZkq8vb9baG-zBvjPOgtya-vBgGiX39QH5wE9IO7WPs0sF6LzEFVrQZsVPMN8qYctweDnYMYIwWOK-tIv6yIf23_ig',
-    select_by: 'btn',
-    login_type: 'google',
-    seed: 1709889339571,
-    apikey: 'apikey_xv9q1mrbmvf2mryv8',
-    sign: 'CAC8B3561CBD6882BD48DEDF574D8498'
-  }
-  const { data, code, msg } = await userStore.getUserInfo(params)
-  if (code === 200) {
-    Message.success('Login success')
-    handleClose()
-  } else {
-    Message.error(msg)
-    loading.value = false
-  }
-}
-
-// 登录
-const postLogin = async (response, type, platform) => {
-  console.log({ response, type, platform })
-  const param = response
-  param.login_type = type
-  const res = await userStore.getUserInfo(param)
-  if (res.code == 200) {
-    Message.success('Login success')
-    sensorLogin(platform, true, '', true)
-    handleClose()
-  } else {
-    Message.error('Login error')
-    sensorLogin(platform, false, res.msg, '')
-  }
-  loading.value = false
-}
-
-/**
- * 登录埋点
- * @param {*} platform 平台
- * @param {*} is_success 是否登录成功
- * @param {*} fail_reason 失败原因
- * @param {*} is_first_log 是否是第一次触发登录
- */
-function sensorLogin(platform, is_success, fail_reason, is_first_log = false) {
-  $sensors.track('h5_LoginPlatformClick', {
-    platform_name: platform,
-    is_success: is_success,
-    fail_reason: fail_reason,
-    is_first_log: !!is_first_log
-  })
+const handleMockLogin = async () => {
+  await userStore.mockLogin()
+  showModal.value = false
 }
 </script>
 
 <style scoped lang="scss">
-.block {
-  width: fit-content;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  h2 {
-    font-size: 34.5px;
+.form {
+  background-color: #fff;
+  display: block;
+  padding: 0.16rem 0.32rem;
+  max-width: 500px;
+  border-radius: 0.06rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  .form-title {
+    margin-bottom: 0.16rem;
+    font-size: 0.2rem;
+    line-height: 1.5;
     font-weight: 600;
-    color: #ffffff;
+    text-align: left;
+    color: #000;
   }
-  h3 {
-    margin-top: 0.045rem;
-    font-size: 0.24rem;
-    font-weight: 400;
-    font-variation-settings: 'opsz' auto;
-    color: #ffffff;
-  }
-  .login-card {
-    width: 4.56rem;
-    height: fit-content;
-    padding: 0.51rem 0.525rem 0.24rem 0.525rem;
-    margin-top: 0.24rem;
-    border-radius: 0.225rem;
-    background: #000000;
-    border: 2px solid rgba(255, 255, 255, 0.3);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    .login-item {
-      position: relative;
-      width: 100%;
-      height: 0.51rem;
-      margin-bottom: 0.195rem;
-      border-radius: 0.12rem;
-      background: #ffffff;
-      overflow: hidden;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      cursor: pointer;
-      img {
-        width: 0.225rem;
-        height: 0.225rem;
-        margin-right: 0.12rem;
-      }
-      span {
-        font-size: 0.15rem;
-        font-weight: 500;
-        line-height: 1;
-        font-variation-settings: 'opsz' auto;
-        color: #333333;
-      }
-    }
-    .google {
-      .google-ui {
-        position: absolute;
-        left: 0;
-        z-index: 1;
-        width: 100%;
-        height: 100%;
-        background: #fff;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        pointer-events: none;
-      }
-      :deep(.google-btn) {
-        position: absolute;
-        left: 0;
-        z-index: 0;
-        width: 100%;
-        height: 100%;
-        .S9gUrf-YoZ4jf {
-          width: 100%;
-          height: 100%;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          & > iframe {
-            transform: scale(5);
-          }
-          & > div {
-            position: absolute;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            div[role='button'] {
-              width: 100%;
-              height: 100%;
-            }
-          }
-        }
-      }
-    }
-    .protocol {
-      width: 3.2925rem;
-      font-size: 0.135rem;
-      font-weight: 400;
-      line-height: 0.18rem;
-      text-align: center;
-      color: rgba(255, 255, 255, 0.7);
-      a {
-        display: inline-block;
-        position: relative;
-        font-weight: 500;
-        color: #ffa13a;
-        text-decoration: underline;
-      }
-    }
 
-    .tip {
-      margin-top: 0.21rem;
-      font-size: 0.135rem;
-      font-weight: 400;
-      line-height: 1;
-      color: #ffffff;
-      span {
-        font-weight: 500;
-        color: #ffa13a;
-      }
+  .input-container {
+    position: relative;
+  }
+
+  .input-container input {
+    outline: none;
+    border: 1px solid #e5e7eb;
+    margin: 0.08rem 0;
+    background-color: #fff;
+    padding: 0.1rem;
+    padding-right: 0.3rem;
+    font-size: 0.14rem;
+    line-height: 1;
+    width: 300px;
+    border-radius: 0.04rem;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  }
+
+  .input-container span {
+    display: grid;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    padding-left: 0.1rem;
+    padding-right: 0.1rem;
+    place-content: center;
+  }
+
+  .input-container span svg {
+    color: #9ca3af;
+    width: 0.16rem;
+    height: 0.16rem;
+  }
+
+  .submit {
+    display: block;
+    height: 0.4rem;
+    margin-top: 0.2rem;
+    background-color: #1e80ff;
+    color: #ffffff;
+    font-size: 0.14rem;
+    font-weight: 500;
+    width: 100%;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+  }
+  .protocol {
+    width: 3.2925rem;
+    margin-top: 0.12rem;
+    font-size: 0.14rem;
+    font-weight: 400;
+    line-height: 0.18rem;
+    text-align: center;
+    color: #8a919f;
+    a {
+      display: inline-block;
+      margin: 0 0.05rem;
+      position: relative;
+      font-weight: 500;
+      color: #1e80ff;
+      text-decoration: none;
     }
   }
 }

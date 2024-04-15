@@ -2,6 +2,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  word-break: break-all;
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -20,7 +21,7 @@ body {
   font-weight: 400;
   letter-spacing: 0;
   line-height: 1.5;
-  color: var(--color-main);
+  color: var(--font-main);
 }
 
 div,
