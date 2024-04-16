@@ -4,14 +4,26 @@ definePageMeta({
   sort: 6
 })
 
+type test = {
+  $sensors: any
+}
+const { $sensors } = useNuxtApp()
+
 console.log('%c页面setup', 'color:green')
 onMounted(() => {
   console.log('%c页面挂载完成', 'color:green')
 })
+if (process.client) {
+  $sensors.track('h5_LoginPlatformClick', {
+    custom_attr: '上报数据'
+  })
+}
 </script>
 
 <template>
-  <div>auth</div>
+  <div class="page">
+    <ContentDoc />
+  </div>
 </template>
 
 <style scoped></style>

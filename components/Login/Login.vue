@@ -77,7 +77,7 @@
   </a-modal>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { Message } from '@arco-design/web-vue'
 import { useUserStore } from '~/stores/user.store.ts'
 
@@ -104,7 +104,10 @@ const handleClose = () => {
 }
 
 const handleLogin = async () => {
-  await userStore.postLogin()
+  const params = {
+    email: 'xxxxx',
+  }
+  await userStore.postLogin(params)
   showModal.value = false
 }
 

@@ -19,7 +19,7 @@ if (process.client) {
 }
 
 const goPage = () => {
-  navigateTo('/demo/api')
+  navigateTo('/list')
 }
 </script>
 

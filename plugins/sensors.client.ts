@@ -31,7 +31,6 @@ export default defineNuxtPlugin((nuxtApp) => {
     anonymousID = sensors.quick('getAnonymousID')
     localStorage.setItem('anonymousID', anonymousID)
   })
-
   // 在app实例上提供hook
   return {
     provide: {

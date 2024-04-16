@@ -6,17 +6,24 @@ definePageMeta({
   sort: 9
 })
 const lottieRef = ref<InstanceType<typeof LottieAnimation>>()
-
-const path = 'https://labs.nearpod.com/bodymovin/demo/markus/halloween/markus.json'
-</script>
+</script> 
 
 <template>
-  <div>
-    <div>lottie</div>
-    <LottieAnimation ref="lottieRef" :path="path" :loop="true" class="mx-auto h-[500px] w-[500px]" />
+  <div class="h-full flex">
+    <LottieAnimation
+      ref="lottieRef"
+      path="/lottie3.json"
+      :loop="true"
+      class="mx-auto h-[350px] w-[350px]"
+    />
+
+    <LottieAnimation
+      ref="lottieRef"
+      path="/lottie2.json"
+      :loop="true"
+      class="mx-auto h-[350px] w-[350px]"
+    />
   </div>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

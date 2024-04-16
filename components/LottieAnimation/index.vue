@@ -8,7 +8,7 @@ const props = defineProps({
   loop: { type: [Number, Boolean], default: false },
   autoPlay: { type: Boolean, default: true },
   speed: { type: Number, default: 1 },
-  assetsPath: { type: String },
+  assetsPath: { type: String }, 
 })
 
 const emit = defineEmits<{

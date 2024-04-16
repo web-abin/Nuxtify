@@ -13,7 +13,13 @@ const state = reactive({
   finished: false
 })
 const { page, pageSize, finished } = toRefs(state)
-const list = ref([])
+
+interface ListItem {
+  id: string
+  title: string
+  body: string
+}
+const list: Ref<ListItem[]> = ref([])
 // immediate 进入页面请求接口,使用execute手动请求,顶层请求使用useAsyncData
 const { pending, data, execute } = await useAsyncData(
   () =>
@@ -39,7 +45,7 @@ const { pending, data, execute } = await useAsyncData(
 )
 
 onMounted(() => {
-  window.addEventListener('scroll', function (event: any) {
+  window.addEventListener('scroll', function (event: Event) {
     var scrollBottom = window.innerHeight + window.scrollY
     var documentHeight = document.body.scrollHeight
 

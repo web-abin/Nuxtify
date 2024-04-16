@@ -4,8 +4,9 @@ import '@arco-design/web-vue/es/notification/style/css.js'
 </script>
 
 <template>
+  <!-- 页面加载进度条 -->
+  <NuxtLoadingIndicator />
   <NuxtLayout>
-    <NuxtLoadingIndicator />
     <NuxtPage />
   </NuxtLayout>
 </template>

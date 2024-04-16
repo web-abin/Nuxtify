@@ -8,7 +8,7 @@ export default defineNuxtConfig({
     pageTransition: { name: 'page', mode: 'out-in' },
     keepalive: true,
     head: {
-      title: tdk.SEO_title,
+      title: tdk.Title,
       meta: [
         { charset: 'utf-8' },
         {
@@ -16,21 +16,18 @@ export default defineNuxtConfig({
           content:
             'width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no'
         },
-        { name: 'description', content: tdk.SEO_description },
-        { name: 'keywords', content: tdk.SEO_keywords }
-      ],
-      link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
-      // 苹果登录  https://developer.apple.com/documentation/sign_in_with_apple/sign_in_with_apple_js/configuring_your_webpage_for_sign_in_with_apple
-      script: [
+        { name: 'description', content: tdk.SEO_DESCRIPTION },
+        { name: 'keywords', content: tdk.SEO_KEYWORDS },
+        { name: 'og:title', content: tdk.SEO_TITLE },
+        { name: 'og:site_name', content: tdk.SEO_TITLE },
         {
-          src: 'https://appleid.cdn-apple.com/appleauth/static/jsapi/appleid/1/en_US/appleid.auth.js',
-          async: true
+          name: 'og:description',
+          content: tdk.SEO_DESCRIPTION
         }
-        // {
-        //   id: 'facebook-jssdk',
-        //   src: 'https://connect.facebook.net/en_US/sdk.js',
-        //   async: true
-        // }
+      ],
+      link: [
+        { rel: 'canonical', href: 'https://www.xxxxx.com' },
+        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
       ]
     }
   },
@@ -43,7 +40,7 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
     'nuxt-lodash',
     '@pinia-plugin-persistedstate/nuxt',
-    "@nuxt/content"
+    '@nuxt/content'
   ],
   css: ['assets/style/index.css', '@unocss/reset/tailwind-compat.css'],
   runtimeConfig: createRuntimeConfig(),

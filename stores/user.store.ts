@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import type { LoginParams, LoginResultModel } from '~/apis/login'
+import type { PostLoginParams } from '~/apis/user'
 const api = useApi()
 
 function storeSetup() {
@@ -9,7 +9,7 @@ function storeSetup() {
   })
 
   // 登录
-  const postLogin = (params: any) => {
+  const postLogin = (params: PostLoginParams) => {
     return new Promise((resolve, reject) => {
       api.user
         .postLogin(params)

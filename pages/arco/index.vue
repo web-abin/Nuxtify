@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { Message, Notification } from '@arco-design/web-vue'
+import { IconHeart, IconMessage, IconStar } from '@arco-design/web-vue/es/icon'
 import type { Ref } from 'vue'
 
 definePageMeta({
@@ -51,16 +52,7 @@ function onMessage() {
         <a-button type="outline" @click="onDrawer"> 抽屉示例 </a-button>
         <a-button type="text" @click="onModal"> 模态框示例 </a-button>
       </a-space>
-      <a-space direction="vertical">
-        <a-alert type="warning">
-          <span line-through
-            >ArcoUI组件库日期选择组件在nuxt3里面报错,目前无法解决.使用第三方替代</span
-          >
-        </a-alert>
-        <a-alert type="success"> 已经修复 </a-alert>
-        <!--        <DatePick v-model="date" /> -->
-        <a-date-picker v-model="date" />
-      </a-space>
+      <a-date-picker v-model="date" />
     </a-space>
     <a-drawer
       :width="340"
@@ -87,6 +79,47 @@ function onMessage() {
         will be closed immediately once you press the OK button.
       </div>
     </a-modal>
+
+    <a-comment
+      author="Socrates"
+      avatar="https://p1-arco.byteimg.com/tos-cn-i-uwbnlip3yd/3ee5f13fb09879ecb5185e440cef6eb9.png~tplv-uwbnlip3yd-webp.webp"
+      content="Comment body content."
+      datetime="1 hour"
+    >
+      <template #actions>
+        <span class="action"> <IconMessage /> Reply </span>
+      </template>
+      <a-comment
+        author="Balzac"
+        avatar="https://p1-arco.byteimg.com/tos-cn-i-uwbnlip3yd/9eeb1800d9b78349b24682c3518ac4a3.png~tplv-uwbnlip3yd-webp.webp"
+        content="Comment body content."
+        datetime="1 hour"
+      >
+        <template #actions>
+          <span class="action"> <IconMessage /> Reply </span>
+        </template>
+        <a-comment
+          author="Austen"
+          avatar="https://p1-arco.byteimg.com/tos-cn-i-uwbnlip3yd/8361eeb82904210b4f55fab888fe8416.png~tplv-uwbnlip3yd-webp.webp"
+          content="Reply content"
+          datetime="1 hour"
+        >
+          <template #actions>
+            <span class="action"> <IconMessage /> Reply </span>
+          </template>
+        </a-comment>
+        <a-comment
+          author="Plato"
+          avatar="https://p1-arco.byteimg.com/tos-cn-i-uwbnlip3yd/3ee5f13fb09879ecb5185e440cef6eb9.png~tplv-uwbnlip3yd-webp.webp"
+          content="Reply content"
+          datetime="1 hour"
+        >
+          <template #actions>
+            <span class="action"> <IconMessage /> Reply </span>
+          </template>
+        </a-comment>
+      </a-comment>
+    </a-comment>
   </div>
 </template>
 

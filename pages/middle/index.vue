@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-import { Message } from '@arco-design/web-vue'
 definePageMeta({
   middleware: 'auth',
   title: '中间件认证示例',

@@ -2,7 +2,7 @@ export default defineNuxtPlugin({
   name: 'hello',
   enforce: 'pre', // or 'post'
   async setup(nuxtApp) {
-    console.log('%c-----插件setup', 'color:red')
+    console.log('%c插件setup', 'color:red')
   },
   hooks: {
     // 您可以在此处直接注册Nuxt应用程序运行时挂钩

@@ -1,8 +1,8 @@
 # 中间件
 
-> 中间件可以理解为我们常说的路由守卫
+> 中间件可以理解为我们常说的路由守卫，在middleware文件夹下创建中间件
 
-## 一、本项目中的中间件
+## 一、本项目中的中间件案例
 
 - **/middleware/auth.ts**：命名路由中间件，在需要的页面中通过 **definePageMeta({ middleware: 'auth' })** 引入使用；
 - **/middleware/title.global.ts**：全局路由中间件，只要文件名带有 **.global** ，即可注册为全局中间件，在每次路由更改时运行；
