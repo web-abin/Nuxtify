@@ -1,6 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 import { createRuntimeConfig, createViteConfig } from './build'
 import tdk from './tdk'
+import sitemap from './public/sitemap.js'
 
 export default defineNuxtConfig({
   app: {
@@ -40,7 +41,8 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
     'nuxt-lodash',
     '@pinia-plugin-persistedstate/nuxt',
-    '@nuxt/content'
+    '@nuxt/content',
+    '@nuxtjs/sitemap'
   ],
   css: ['assets/style/index.css', '@unocss/reset/tailwind-compat.css'],
   runtimeConfig: createRuntimeConfig(),
@@ -60,5 +62,11 @@ export default defineNuxtConfig({
   // vueuse
   vueuse: {
     ssrHandlers: true
-  }
+  },
+  // 站点地图配置
+  site: {
+    url: 'https://www.xmate.ai',
+    trailingSlash: true
+  },
+  sitemap: sitemap
 })

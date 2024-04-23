@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /protocol/agreement-en.html
+Disallow: /protocol/service-en.html
+Disallow: /user
+Disallow: /detail

@@ -48,6 +48,7 @@
     "@arco-design/web-vue": "^2.55.0",
     "@iconify-json/mdi": "^1.1.64",
     "@nuxt/content": "^2.12.1",
+    "@nuxtjs/sitemap": "^5.1.4",
     "@pinia-plugin-persistedstate/nuxt": "^1.2.0",
     "@pinia/nuxt": "^0.5.1",
     "@types/dplayer": "^1.25.5",
