@@ -49,6 +49,15 @@ const goPage = () => {
           掘金主页
         </a>
       </li>
+      <li>
+        <a
+          href="https://web-abin.gitee.io/abin-web/tools"
+          rel="nofollow external"
+          target="_blank"
+        >
+          前端助手
+        </a>
+      </li>
     </ul>
 
     <a-button type="primary" @click="goPage">路由导航</a-button>
