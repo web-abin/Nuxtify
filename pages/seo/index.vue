@@ -12,7 +12,7 @@ useSeoMeta({
 
 <template>
   <div class="page">
-    <ContentDoc />
+    <ContentDoc class="markdown"/>
   </div>
 </template>
 

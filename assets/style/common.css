@@ -1,4 +1,4 @@
-[data-content-id] {
+.markdown {
   font-size: 0.14rem;
   line-height: 1.5;
   h1,
@@ -28,7 +28,7 @@
   ul {
     list-style: disc;
   }
-  ol{
+  ol {
     list-style: decimal;
   }
   li {
@@ -38,7 +38,7 @@
   /* 设置代码块样式 */
   pre {
     width: 100%;
-    padding: .16rem;
+    padding: 0.16rem;
     border-radius: 4px;
     background: #f3f3f3;
     overflow-x: auto;

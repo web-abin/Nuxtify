@@ -22,7 +22,7 @@ if (process.client) {
 
 <template>
   <div class="page">
-    <ContentDoc />
+    <ContentDoc class="markdown"/>
   </div>
 </template>
 
