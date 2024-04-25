@@ -65,7 +65,7 @@ export default defineNuxtConfig({
   },
   // 站点地图配置
   site: {
-    url: 'https://www.xmate.ai',
+    url: 'https://www.nuxtify.site',
     trailingSlash: false // 是否保留站点地图 url 的尾部斜杠
   },
   sitemap: sitemap
