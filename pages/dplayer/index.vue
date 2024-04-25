@@ -22,7 +22,7 @@ function onPause() {
   <div>
     <div class="text-2xl font-bold">dplayer</div>
     <DPlayer
-      class="w-[500px]"
+      class="player"
       :url="url"
       :auto-play="true"
       @canplay="onCanplay"
@@ -32,4 +32,8 @@ function onPause() {
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.player {
+  width: 100%;
+}
+</style>

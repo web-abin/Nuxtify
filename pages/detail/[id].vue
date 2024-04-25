@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 definePageMeta({
   title: '文章详情',
-  sort: 2
+  sort: -1
 })
 
 const route = useRoute()
