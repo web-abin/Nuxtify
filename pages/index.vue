@@ -30,22 +30,26 @@ const goPage = () => {
     >
       Nuxtify：帮助你快速搭建一个nuxt3应用！
     </p>
-    <div class="flex gap-2 items-center my-4">
-      <a
-        href="~/assets/images/github.png"
-        rel="nofollow external"
-        target="_blank"
-      >
-        <img src="~/assets/images/github.png" alt="github" />
-      </a>
-      <a
-        href="https://juejin.cn/user/994399097982728/posts"
-        rel="nofollow external"
-        target="_blank"
-      >
-        <img src="~/assets/images/juejin.png" alt="掘金" />
-      </a>
-    </div>
+    <ul>
+      <li>
+        <a
+          href="https://github.com/web-abin/Nuxtify"
+          rel="nofollow external"
+          target="_blank"
+        >
+          github项目地址
+        </a>
+      </li>
+      <li>
+        <a
+          href="https://juejin.cn/user/994399097982728/posts"
+          rel="nofollow external"
+          target="_blank"
+        >
+          掘金主页
+        </a>
+      </li>
+    </ul>
 
     <a-button type="primary" @click="goPage">路由导航</a-button>
 
@@ -55,10 +59,17 @@ const goPage = () => {
 </template>
 
 <style scoped lang="scss">
-a {
-  width: 0.3rem;
-  height: 0.3rem;
-  display: grid;
-  place-content: center;
+ul {
+  list-style: none;
+  li {
+    margin-bottom: 10px;
+    a {
+      display: block;
+      font-size: 15px;
+      line-height: 2;
+      color: var(--color-main);
+      text-decoration: underline;
+    }
+  }
 }
 </style>
