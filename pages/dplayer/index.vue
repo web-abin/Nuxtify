@@ -5,9 +5,7 @@ definePageMeta({
   title: '播放视频',
   sort: 7
 })
-const url: Ref<string> = ref(
-  'https://api.dogecloud.com/player/get.mp4?vcode=5ac682e6f8231991&userId=17&ext=.mp4'
-)
+const url: Ref<string> = ref('/ikun.mp4')
 
 function onCanplay() {
   Message.success('视频准备就绪')
