@@ -6,22 +6,9 @@
     </div>
 
     <!-- 未登录 -->
-    <div class="right-menu" v-if="!userStore.token">
+    <div class="right-menu">
       <a
-        href="https://discord.gg/wvdUSfXh"
-        class="discard"
-        rel="nofollow external"
-        target="_blank"
-      >
-        <img src="~/assets/images/a1.webp" alt="discard图标" />
-      </a>
-
-      <button class="btn-login" @click="goLogin">登录/注册</button>
-    </div>
-
-    <div class="right-menu logined" v-else>
-      <a
-        href="~/assets/images/github.png"
+        href="https://github.com/web-abin/Nuxtify"
         rel="nofollow external"
         target="_blank"
       >
@@ -34,7 +21,12 @@
       >
         <img src="~/assets/images/juejin.png" alt="掘金" />
       </a>
+
+      <button v-if="!userStore.token" class="btn-login" @click="goLogin">
+        登录/注册
+      </button>
       <img
+        v-else
         src="https://p3-passport.byteacctimg.com/img/user-avatar/63b937799b5fa48bdcabc4a93ccda542~80x80.awebp"
         alt="头像"
         class="avatar"
@@ -90,23 +82,7 @@ header {
   .right-menu {
     display: flex;
     align-items: center;
-    .btn-login {
-      width: fit-content;
-      height: 0.36rem;
-      padding: 0 0.16rem;
-      border-radius: 4px;
-      background: #1e80ff;
-      font-size: 0.14rem;
-      font-weight: 500;
-      color: #ffffff;
-      line-height: 1;
-      display: grid;
-      place-content: center;
-    }
-  }
-
-  .logined {
-    column-gap: 0.12rem;
+    column-gap: 0.1rem;
     .avatar {
       width: 0.36rem;
       height: 0.36rem;
@@ -122,6 +98,19 @@ header {
         max-width: 100%;
         max-height: 100%;
       }
+    }
+    .btn-login {
+      width: fit-content;
+      height: 0.36rem;
+      padding: 0 0.16rem;
+      border-radius: 4px;
+      background: #1e80ff;
+      font-size: 0.14rem;
+      font-weight: 500;
+      color: #ffffff;
+      line-height: 1;
+      display: grid;
+      place-content: center;
     }
   }
 }

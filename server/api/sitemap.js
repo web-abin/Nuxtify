@@ -3,15 +3,15 @@ export default defineSitemapEventHandler(async (e) => {
     method: 'GET',
     params: {
       _start: 1,
-      _limit: 8
+      _limit: 10
     }
   })
 
   return res.map((item) => {
     return {
-      loc: 'post' + item.id,
+      loc: 'detail/' + item.id,
       lastmod: new Date(),
-      changefred: 'yearly',
+      changefred: 'monthly', // 更新频率  always hourly daily weekly monthly yearly never
       priority: 0.8
     }
   })

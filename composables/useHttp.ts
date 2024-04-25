@@ -1,26 +1,7 @@
 import { Message } from '@arco-design/web-vue'
-import { Md5 } from 'ts-md5'
-import { v4 as uuidv4 } from 'uuid'
 import type { FetchResponse, SearchParameters } from 'ofetch'
 import { useUserStore } from '~/stores/user.store'
 import IconEmoticonDead from '~icons/mdi/emoticon-dead'
-
-function GenerateKey() {
-  const userStore = useUserStore()
-  const token = userStore.token
-  const param = {
-    seed: Date.now(),
-    apikey: token ? token : `apikey_${uuidv4()}`,
-    sign: ''
-  }
-  const md5: any = new Md5()
-  md5.appendAsciiStr(
-    param.apikey + param.seed + 'b8e8d3041d75434eb2c093a4524e0a11'
-  )
-  const password = md5.end()
-  param.sign = password.toUpperCase()
-  return param
-}
 
 export interface ResOptions<T> {
   data: T
@@ -74,24 +55,26 @@ const fetch = $fetch.create({
   onRequest({ options }) {
     // get方法传递数组形式参数
     options.params = paramsSerializer(options.params)
-    // 添加baseURL,nuxt3环境变量要从useRuntimeConfig里面取
+    // 添加baseURL，nuxt3环境变量要从useRuntimeConfig里面取
     const {
       public: { apiBase, env }
     } = useRuntimeConfig()
 
     options.baseURL = apiBase
-    // 添加请求头,没登录不携带token
-    const userStore = useUserStore()
-    if (!userStore.token) return
 
+    // 添加一些公共参数
+    const commonParams = {
+      apikey: 'xxxxxx'
+    }
     options[options.method === 'GET' ? 'params' : 'body'] = Object.assign(
       {},
       options[options.method === 'GET' ? 'params' : 'body'],
-      GenerateKey()
+      commonParams
     )
-    // options.data = Object.assign({}, options.data, GenerateKey())
-    // options.headers!['x-client'] = 'h5'
-    // options.headers!['X-Version'] = '1.2.5'
+
+    // 添加请求头,没登录不携带token
+    const userStore = useUserStore()
+    if (!userStore.token) return
     options.headers = new Headers(options.headers)
     options.headers.set('Authorization', `Bearer ${userStore.token}`)
   },

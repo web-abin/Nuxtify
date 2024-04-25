@@ -52,7 +52,7 @@ const { data, pending, execute } = await useAsyncData(
 
 <template>
   <div>
-    <div class="flex space-x-4">
+    <div class="flex gap-4 flex-wrap">
       <a-button type="primary" status="success" @click="onFetch"
         >$fetch</a-button
       >

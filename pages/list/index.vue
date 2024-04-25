@@ -44,6 +44,11 @@ const { pending, data, execute } = await useAsyncData(
   }
 )
 
+// 跳转文章详情页
+const goDetail = (post) => {
+  navigateTo('/detail/' + post.id)
+}
+
 onMounted(() => {
   window.addEventListener('scroll', function (event: Event) {
     var scrollBottom = window.innerHeight + window.scrollY
@@ -61,7 +66,12 @@ onMounted(() => {
 <template>
   <div class="page">
     <div class="list">
-      <div v-for="item in data" :key="item.id" class="item">
+      <div
+        v-for="item in data"
+        :key="item.id"
+        class="item"
+        @click="goDetail(item)"
+      >
         <p class="title">{{ item.title }}</p>
         <p class="desc">{{ item.body }}</p>
       </div>

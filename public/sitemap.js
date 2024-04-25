@@ -12,13 +12,6 @@ const sitemap = {
         changefred: 'yearly',
         lastmod: new Date(),
         priority: 1
-      },
-      // 产品中心
-      {
-        url: `/chat/234325`,
-        changefred: 'yearly',
-        lastmod: new Date(),
-        priority: 0.9
       }
     ]
     return routes

@@ -31,6 +31,7 @@
     display: flex;
     justify-content: space-between;
     column-gap: 0.16rem;
+    overflow: hidden;
     .content {
       width: calc(100% - var(--aside-width) - 0.16rem);
       height: fit-content;
@@ -38,6 +39,32 @@
       padding: 0.16rem;
       border-radius: 4px;
       background: var(--background-panel);
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .layout {
+    main {
+      padding-bottom: 17.0667vw;
+      :deep(aside) {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        z-index: 999;
+        width: 100vw;
+        height: 13.8667vw;
+        display: flex;
+        align-items: center;
+        overflow-x: scroll;
+        a {
+          white-space: nowrap;
+          width: fit-content;
+          height: fit-content;
+          padding: 2.1333vw 3.2vw;
+          margin: 0;
+        }
+      }
     }
   }
 }

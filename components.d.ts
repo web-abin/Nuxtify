@@ -7,19 +7,14 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
-    AAlert: typeof import('@arco-design/web-vue')['Alert']
     AButton: typeof import('@arco-design/web-vue')['Button']
-    ACarousel: typeof import('@arco-design/web-vue')['Carousel']
-    ACarouselItem: typeof import('@arco-design/web-vue')['CarouselItem']
     AComment: typeof import('@arco-design/web-vue')['Comment']
     ADatePicker: typeof import('@arco-design/web-vue')['DatePicker']
     ADrawer: typeof import('@arco-design/web-vue')['Drawer']
     AEmpty: typeof import('@arco-design/web-vue')['Empty']
-    AInputPassword: typeof import('@arco-design/web-vue')['InputPassword']
     AModal: typeof import('@arco-design/web-vue')['Modal']
     ASpace: typeof import('@arco-design/web-vue')['Space']
     ASpin: typeof import('@arco-design/web-vue')['Spin']
-    ATextarea: typeof import('@arco-design/web-vue')['Textarea']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
   }
