@@ -21,7 +21,7 @@ const router = useRouter()
 const navList = ref()
 const routerList = router
   .getRoutes()
-  .filter((item) => item.path !== '/' && item.sort !== -1)
+  .filter((item) => item.path !== '/' && item.meta.sort !== -1)
   .sort((a, b) => b.meta.sort - a.meta.sort)
   .map((item) => ({ to: item.path, name: item.meta.title ?? item.name }))
   .reverse()
