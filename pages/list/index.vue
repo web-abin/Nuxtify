@@ -32,7 +32,7 @@ const { pending, data, execute } = await useAsyncData(
     }),
   {
     // 服务端请求
-    server: false,
+    server: true,
     // 监听反应源
     watch: [page],
     // handler在解析后更改函数结果
