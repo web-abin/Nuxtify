@@ -7,7 +7,7 @@ definePageMeta({
 const route = useRoute()
 const { data, pending, execute } = await useAsyncData(
   () =>
-    useHttp.get('http://jsonplaceholder.typicode.com/posts/' + route.params.id),
+    useHttp.get('https://jsonplaceholder.typicode.com/posts/' + route.params.id),
   {
     immediate: true
   }
