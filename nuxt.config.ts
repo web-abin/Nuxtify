@@ -27,7 +27,7 @@ export default defineNuxtConfig({
         }
       ],
       link: [
-        { rel: 'canonical', href: 'https://www.xxxxx.com' },
+        { rel: 'canonical', href: 'https://www.nuxtify.site' },
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
       ]
     }
