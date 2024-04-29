@@ -7,7 +7,21 @@ definePageMeta({
 const route = useRoute()
 const { data, pending, execute } = await useAsyncData(
   () =>
-    useHttp.get('https://jsonplaceholder.typicode.com/posts/' + route.params.id),
+    useHttp.get(
+      'https://jsonplaceholder.typicode.com/posts/' + route.params.id
+    ),
+  {
+    immediate: true
+  }
+)
+watch(
+  data,
+  (val: any) => {
+    useSeoMeta({
+      title: val.title,
+      description: val.body
+    })
+  },
   {
     immediate: true
   }
