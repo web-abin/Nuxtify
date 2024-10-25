@@ -15,5 +15,6 @@ function storeSetup() {
   }
 }
 export const useDemoStore = defineStore('app-demo', storeSetup, {
+  storage: persistedState.localStorage,
   persist: false
 })

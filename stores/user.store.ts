@@ -80,6 +80,7 @@ function storeSetup() {
 }
 export const useUserStore = defineStore('app-user', storeSetup, {
   persist: {
+    storage: persistedState.localStorage,
     paths: ['token', 'userInfo']
   }
 })

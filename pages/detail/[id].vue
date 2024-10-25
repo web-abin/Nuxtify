@@ -1,11 +1,14 @@
 <script lang="ts" setup>
+import { useUserStore } from '~/stores/user.store'
+const userStore = useUserStore()
 definePageMeta({
   title: '文章详情',
   sort: -1
 })
 
+const articleInfo = ref({})
 const route = useRoute()
-const { data, pending, execute } = await useAsyncData(
+const { data } = await useAsyncData(
   () =>
     useHttp.get(
       'https://jsonplaceholder.typicode.com/posts/' + route.params.id
@@ -14,24 +17,21 @@ const { data, pending, execute } = await useAsyncData(
     immediate: true
   }
 )
-watch(
-  data,
-  (val: any) => {
-    useSeoMeta({
-      title: val.title,
-      description: val.body
-    })
-  },
-  {
-    immediate: true
-  }
-)
+
+useServerSeoMeta({
+  title: data.value.title
+})
+
+articleInfo.value = {
+  title: `<${data.value.title}>`,
+  body: `article content: ${data.value.body}`
+}
 </script>
 
 <template>
   <div class="page">
-    <h1>{{ data.title }}</h1>
-    <p>{{ data.body }}</p>
+    <h1>{{ articleInfo.title }}</h1>
+    <p>{{ articleInfo.body }}</p>
 
     <section>
       文章详情页数据用useAsyncData服务端获取数据，配合sitemap动态生成地址，可以做每篇文章的seo

@@ -21,6 +21,8 @@ if (process.client) {
 const goPage = () => {
   navigateTo('/list')
 }
+
+$fetch('/api/hello?name=Nuxt')
 </script>
 
 <template>
