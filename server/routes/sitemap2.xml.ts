@@ -1,6 +1,6 @@
 // server/routes/sitemap.xml.ts
 export default defineEventHandler((event) => {
-  const sitemap = `
+    const sitemap = `
     <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
       <url>
         <loc>https://example.com/</loc>
@@ -15,6 +15,6 @@ export default defineEventHandler((event) => {
     </urlset>
   `
 
-  event.node.res.setHeader('Content-Type', 'application/xml')
-  return sitemap
+    event.node.res.setHeader('Content-Type', 'application/xml')
+    return sitemap
 })

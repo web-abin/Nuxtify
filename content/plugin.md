@@ -4,9 +4,9 @@
 
 ## 一、本项目中的插件案例
 
-- **hello.client.ts** 全局方法
-- **player.client.ts**：播放器插件
-- **sensors.client.js** 神策埋点
+-   **hello.client.ts** 全局方法
+-   **player.client.ts**：播放器插件
+-   **sensors.client.js** 神策埋点
 
 ## 二、创建插件
 

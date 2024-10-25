@@ -7,19 +7,19 @@
 
 ## 特性
 
-- 环境变量配置 runtimeConfig
-- $fetch 请求封装，注册组合项 API: `useHttp`
-- 状态管理 `pinia` + `pinia-plugin-persistedstate`持久化
-- 插件初始化示例：神策`sensors`
-- 原子化 css `unocss`
-- 工具库 `lodash` `vueuse`
-- 文档模块 `@nuxt/content`
-- 代码风格 `eslint` `@antfu/eslint-config`
-- 动画 `lottie-web`
-- UI 库 arco `@arco-design/web-vue` + 自动引入 `unplugin-vue-components`
-- 视频播放器 `DPlayer`
-- GZIP 压缩 `vite-plugin-compression`
-- 动态生成`sitemap`站点地图：`@nuxtjs/sitemap`
+-   环境变量配置 runtimeConfig
+-   $fetch 请求封装，注册组合项 API: `useHttp`
+-   状态管理 `pinia` + `pinia-plugin-persistedstate`持久化
+-   插件初始化示例：神策`sensors`
+-   原子化 css `unocss`
+-   工具库 `lodash` `vueuse`
+-   文档模块 `@nuxt/content`
+-   代码风格 `eslint` `@antfu/eslint-config`
+-   动画 `lottie-web`
+-   UI 库 arco `@arco-design/web-vue` + 自动引入 `unplugin-vue-components`
+-   视频播放器 `DPlayer`
+-   GZIP 压缩 `vite-plugin-compression`
+-   动态生成`sitemap`站点地图：`@nuxtjs/sitemap`
 
 ## 启动
 
@@ -32,7 +32,6 @@ npm run dev
 ## 部署
 
 执行 `npm run build` 编译打包，启动服务可以`直接 node 启动`或者用 `pm2 启动`：
-
 
 ### 1. node 启动
 
@@ -68,6 +67,7 @@ module.exports = {
 }
 
 ```
+
 pm2 启动配置文件
 
 ```

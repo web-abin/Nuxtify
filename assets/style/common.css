@@ -1,56 +1,56 @@
 .markdown {
-  font-size: 0.14rem;
-  line-height: 1.5;
-  h1,
-  h2,
-  h3,
-  h4 {
-    line-height: 2;
-    font-weight: bold;
-    color: #333;
-  }
-  h1 {
-    font-size: 0.24rem;
-  }
-  h2 {
-    font-size: 0.18rem;
-  }
-  blockquote {
-    border-left: 4px solid #007bff;
-    padding: 0.1rem 0.12rem;
-    margin: 0.12rem 0;
-  }
-  ul,
-  ol {
-    margin-bottom: 0.12rem;
-  }
-
-  ul {
-    list-style: disc;
-  }
-  ol {
-    list-style: decimal;
-  }
-  li {
-    margin-left: 0.15rem;
-  }
-
-  /* 设置代码块样式 */
-  pre {
-    width: 100%;
-    padding: 0.16rem;
-    border-radius: 4px;
-    background: #f3f3f3;
-    overflow-x: auto;
-    margin: 0.2rem 0;
-  }
-
-  code {
-    display: block;
-    /* white-space: break-spaces; */
-    font-family: Consolas, monospace;
     font-size: 0.14rem;
     line-height: 1.5;
-    color: #333;
-  }
+    h1,
+    h2,
+    h3,
+    h4 {
+        line-height: 2;
+        font-weight: bold;
+        color: #333;
+    }
+    h1 {
+        font-size: 0.24rem;
+    }
+    h2 {
+        font-size: 0.18rem;
+    }
+    blockquote {
+        border-left: 4px solid #007bff;
+        padding: 0.1rem 0.12rem;
+        margin: 0.12rem 0;
+    }
+    ul,
+    ol {
+        margin-bottom: 0.12rem;
+    }
+
+    ul {
+        list-style: disc;
+    }
+    ol {
+        list-style: decimal;
+    }
+    li {
+        margin-left: 0.15rem;
+    }
+
+    /* 设置代码块样式 */
+    pre {
+        width: 100%;
+        padding: 0.16rem;
+        border-radius: 4px;
+        background: #f3f3f3;
+        overflow-x: auto;
+        margin: 0.2rem 0;
+    }
+
+    code {
+        display: block;
+        /* white-space: break-spaces; */
+        font-family: Consolas, monospace;
+        font-size: 0.14rem;
+        line-height: 1.5;
+        color: #333;
+    }
 }

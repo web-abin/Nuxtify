@@ -4,20 +4,20 @@ import '@arco-design/web-vue/es/notification/style/css.js'
 </script>
 
 <template>
-  <!-- 页面加载进度条 -->
-  <NuxtLoadingIndicator />
-  <NuxtLayout>
-    <NuxtPage />
-  </NuxtLayout>
+    <!-- 页面加载进度条 -->
+    <NuxtLoadingIndicator />
+    <NuxtLayout>
+        <NuxtPage />
+    </NuxtLayout>
 </template>
 
 <style>
 body {
-  height: 100vh;
-  overflow-x: hidden;
-  overflow-y: scroll;
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: scroll;
 }
 #__nuxt {
-  height: fit-content;
+    height: fit-content;
 }
 </style>

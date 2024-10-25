@@ -1,83 +1,83 @@
 {
-  "name": "nuxtify",
-  "type": "module",
-  "version": "0.1.0",
-  "packageManager": "pnpm@9.1.3",
-  "description": "nuxt3 TS unocss pinia arco",
-  "author": "Web Abin",
-  "license": "MIT",
-  "homepage": "https://github.com/LUDA0831/nuxt3-template-demo",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/LUDA0831/nuxt3-template-demo"
-  },
-  "bugs": "https://github.com/LUDA0831/nuxt3-template-demo/issues",
-  "keywords": [
-    "nuxtify",
-    "nuxt3",
-    "template",
-    "cli"
-  ],
-  "scripts": {
-    "dev": "nuxt dev -o",
-    "build": "nuxt build",
-    "build:test": "nuxt build --dotenv .env.test",
-    "start": "node .output/server/index.mjs",
-    "clean": "nuxt clean",
-    "analyze": "nuxt analyze",
-    "generate": "nuxt generate",
-    "preview": "nuxt preview",
-    "postinstall": "nuxt prepare",
-    "typecheck": "nuxt typecheck",
-    "lint:js": "eslint --ext \".js,.vue\" --ignore-path .gitignore .",
-    "lint:prettier": "prettier --check .",
-    "lint": "npm run lint:js && pnpm lint:prettier",
-    "lintfix": "prettier --write --list-different . && pnpm lint:js --fix && pnpm lint:style --fix"
-  },
-  "lint-staged": {
-    "*.{js,ts,vue}": [
-      "eslint --fix",
-      "prettier --write"
-    ]
-  },
-  "dependencies": {
-    "@unocss/reset": "^0.58.6",
-    "@vitejs/plugin-vue": "^5.0.4",
-    "dplayer": "^1.27.1",
-    "sa-sdk-javascript": "^1.26.10",
-    "sass": "^1.72.0",
-    "sass-loader": "^14.1.1",
-    "ts-md5": "^1.3.1",
-    "unplugin-auto-import": "^0.17.5",
-    "uuid": "^9.0.1",
-    "vue-lazyload": "^3.0.0"
-  },
-  "devDependencies": {
-    "@antfu/eslint-config": "^2.8.3",
-    "@arco-design/web-vue": "^2.55.0",
-    "@iconify-json/mdi": "^1.1.64",
-    "@nuxt/content": "^2.12.1",
-    "@nuxtjs/sitemap": "^5.1.4",
-    "@pinia-plugin-persistedstate/nuxt": "^1.2.0",
-    "@pinia/nuxt": "^0.5.1",
-    "@types/dplayer": "^1.25.5",
-    "@unocss/eslint-config": "^0.58.6",
-    "@unocss/nuxt": "^0.58.6",
-    "@unocss/preset-rem-to-px": "^0.58.6",
-    "@vueuse/core": "^10.9.0",
-    "@vueuse/nuxt": "^10.9.0",
-    "eslint": "^8.57.0",
-    "husky": "^9.1.6",
-    "lint-staged": "^15.2.10",
-    "lottie-web": "^5.12.2",
-    "nuxt": "^3.11.1",
-    "nuxt-lodash": "^2.5.3",
-    "typescript": "^5.4.3",
-    "unocss": "^0.58.6",
-    "unplugin-icons": "^0.18.5",
-    "unplugin-vue-components": "^0.26.0",
-    "vite-plugin-compression": "^0.5.1",
-    "vue": "^3.4.21",
-    "vue-router": "^4.3.0"
-  }
+    "name": "nuxtify",
+    "type": "module",
+    "version": "0.1.0",
+    "packageManager": "pnpm@9.1.3",
+    "description": "nuxt3 TS unocss pinia arco",
+    "author": "Web Abin",
+    "license": "MIT",
+    "homepage": "https://github.com/LUDA0831/nuxt3-template-demo",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/LUDA0831/nuxt3-template-demo"
+    },
+    "bugs": "https://github.com/LUDA0831/nuxt3-template-demo/issues",
+    "keywords": [
+        "nuxtify",
+        "nuxt3",
+        "template",
+        "cli"
+    ],
+    "scripts": {
+        "dev": "nuxt dev -o",
+        "build": "nuxt build",
+        "build:test": "nuxt build --dotenv .env.test",
+        "start": "node .output/server/index.mjs",
+        "clean": "nuxt clean",
+        "analyze": "nuxt analyze",
+        "generate": "nuxt generate",
+        "preview": "nuxt preview",
+        "postinstall": "nuxt prepare",
+        "typecheck": "nuxt typecheck",
+        "lint:js": "eslint --ext \".js,.vue\" --ignore-path .gitignore .",
+        "lint:prettier": "prettier --check .",
+        "lint": "npm run lint:js && pnpm lint:prettier",
+        "lintfix": "prettier --write --list-different . && pnpm lint:js --fix && pnpm lint:style --fix"
+    },
+    "lint-staged": {
+        "*.{js,ts,vue}": [
+            "eslint --fix",
+            "prettier --write"
+        ]
+    },
+    "dependencies": {
+        "@unocss/reset": "^0.58.6",
+        "@vitejs/plugin-vue": "^5.0.4",
+        "dplayer": "^1.27.1",
+        "sa-sdk-javascript": "^1.26.10",
+        "sass": "^1.72.0",
+        "sass-loader": "^14.1.1",
+        "ts-md5": "^1.3.1",
+        "unplugin-auto-import": "^0.17.5",
+        "uuid": "^9.0.1",
+        "vue-lazyload": "^3.0.0"
+    },
+    "devDependencies": {
+        "@antfu/eslint-config": "^2.8.3",
+        "@arco-design/web-vue": "^2.55.0",
+        "@iconify-json/mdi": "^1.1.64",
+        "@nuxt/content": "^2.12.1",
+        "@nuxtjs/sitemap": "^5.1.4",
+        "@pinia-plugin-persistedstate/nuxt": "^1.2.0",
+        "@pinia/nuxt": "^0.5.1",
+        "@types/dplayer": "^1.25.5",
+        "@unocss/eslint-config": "^0.58.6",
+        "@unocss/nuxt": "^0.58.6",
+        "@unocss/preset-rem-to-px": "^0.58.6",
+        "@vueuse/core": "^10.9.0",
+        "@vueuse/nuxt": "^10.9.0",
+        "eslint": "^8.57.0",
+        "husky": "^9.1.6",
+        "lint-staged": "^15.2.10",
+        "lottie-web": "^5.12.2",
+        "nuxt": "^3.11.1",
+        "nuxt-lodash": "^2.5.3",
+        "typescript": "^5.4.3",
+        "unocss": "^0.58.6",
+        "unplugin-icons": "^0.18.5",
+        "unplugin-vue-components": "^0.26.0",
+        "vite-plugin-compression": "^0.5.1",
+        "vue": "^3.4.21",
+        "vue-router": "^4.3.0"
+    }
 }

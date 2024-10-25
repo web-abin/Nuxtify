@@ -1,6 +1,6 @@
 // server/routes/sitemap.xml.ts
 export default defineEventHandler((event) => {
-  return `<!DOCTYPE html>
+    return `<!DOCTYPE html>
     <html lang="en">
 
     <head>
