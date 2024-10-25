@@ -1,6 +1,4 @@
 <script lang="ts" setup>
-import { useUserStore } from '~/stores/user.store'
-const userStore = useUserStore()
 definePageMeta({
     title: '文章详情',
     sort: -1
@@ -13,12 +11,12 @@ const { data } = await useAsyncData(() => useHttp.get('https://jsonplaceholder.t
 })
 
 useServerSeoMeta({
-    title: data.value.title
+    title: data.value?.title
 })
 
 articleInfo.value = {
-    title: `<${data.value.title}>`,
-    body: `article content: ${data.value.body}`
+    title: `<${data.value?.title}>`,
+    body: `article content: ${data.value?.body}`
 }
 </script>
 

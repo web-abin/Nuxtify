@@ -1,12 +1,11 @@
 <script lang="ts" setup>
 import { Message } from '@arco-design/web-vue'
-import { useUserStore } from '~/stores/user.store'
-import { getPostList } from '~/apis/posts'
 
 definePageMeta({
     title: '请求封装',
     sort: 1
 })
+const api = useApi()
 const userStore = useUserStore()
 
 const onFetch = async () => {
@@ -39,7 +38,7 @@ const onMyFetch2 = async () => {
 
 const page = ref(1)
 // immediate 进入页面请求接口,使用execute手动请求,顶层请求使用useAsyncData
-const { data, pending, execute } = await useAsyncData(() => getPostList({ _start: page.value, _limit: 2 }), {
+const { data, pending, execute } = await useAsyncData(() => api.posts.getPostList({ _start: page.value, _limit: 2 }), {
     immediate: true
 })
 </script>

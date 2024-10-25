@@ -1,4 +1,9 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+definePageMeta({
+    title: 'seo设置',
+    sort: 8
+})
+</script>
 
 <template>
     <div class="page">

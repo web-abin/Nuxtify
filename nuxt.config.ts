@@ -7,7 +7,7 @@ export default defineNuxtConfig({
     app: {
         baseURL: '/',
         pageTransition: { name: 'page', mode: 'out-in' },
-        keepalive: true,
+        keepalive: false,
         head: {
             title: tdk.Title,
             meta: [

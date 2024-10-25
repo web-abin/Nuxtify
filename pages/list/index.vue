@@ -55,6 +55,36 @@ onMounted(() => {
         }
     })
 })
+onUnmounted(() => {})
+
+let observer: any, targetNode: HTMLElement | null
+onMounted(() => {
+    targetNode = document.querySelector('.loading')
+    observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting && entry.target.classList.contains('loading')) {
+                    if (!pending.value && !state.finished) {
+                        state.page++
+                    }
+                }
+            })
+        },
+        {
+            threshold: 0
+        }
+    )
+
+    // 开始观察
+    observer.observe(targetNode)
+})
+
+onUnmounted(() => {
+    if (!!observer) {
+        observer.disconnect()
+        observer = null
+    }
+})
 </script>
 
 <template>
@@ -65,7 +95,7 @@ onMounted(() => {
                 <p class="desc">{{ item.body }}</p>
             </a>
         </div>
-        <div class="w-full flex justify-center">
+        <div class="loading w-full flex justify-center">
             <a-spin v-show="pending" :size="32" class="mt-[12px]" />
             <p v-show="finished" class="mt-[12px]">-.-</p>
         </div>

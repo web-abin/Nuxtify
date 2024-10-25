@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
 import type { PostLoginParams } from '~/apis/user'
-const api = useApi()
 
+const api = useApi()
 function storeSetup() {
     const state = reactive<any>({
         token: '',
