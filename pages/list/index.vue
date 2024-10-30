@@ -2,7 +2,7 @@
 import { Message } from '@arco-design/web-vue'
 
 definePageMeta({
-    title: '服务端请求数据',
+    title: '服务端预取数据',
     sort: 2
 })
 
@@ -42,20 +42,6 @@ const { pending, data, execute } = await useAsyncData(
         }
     }
 )
-
-onMounted(() => {
-    window.addEventListener('scroll', function (event: Event) {
-        var scrollBottom = window.innerHeight + window.scrollY
-        var documentHeight = document.body.scrollHeight
-
-        if (scrollBottom >= documentHeight - 2) {
-            if (!pending.value && !state.finished) {
-                state.page++
-            }
-        }
-    })
-})
-onUnmounted(() => {})
 
 let observer: any, targetNode: HTMLElement | null
 onMounted(() => {
